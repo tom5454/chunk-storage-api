@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "chunk-storage-api-fabric",
+	"version": "${version}",
+	"name": "Chunk Storage Api Fabric",
+	"description": "Small libary to store mod specific nbt data in each chunk.",
+	"authors": [
+		"tom5454"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/chunk-storage-api-fabric",
+		"sources": "https://github.com/tom5454/chunk-storage-api"
+	},
+	"license": "MIT",
+	"icon": "assets/chunk-storage-lib-fabric/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.tom.chunkstorage.ChunkStorage"
+		]
+	},
+	"mixins": [
+		"chunk-storage-api-fabric.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.7.4",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

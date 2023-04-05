@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.tom.chunkstorage.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"ChunkSerializerMixin",
+		"LevelChunkMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
