@@ -4,11 +4,19 @@ import java.util.function.Supplier;
 
 import net.minecraft.resources.ResourceLocation;
 
+/**
+ * @author tom5454
+ * */
 public class DataObjectKey<T extends DataObject> {
 	private final ResourceLocation id;
 	private final int hash;
 	private final Supplier<T> factory;
 
+	/**
+	 * Internal use only
+	 *
+	 * Use {@link ChunkStorageApi#registerObjectFactory(ResourceLocation, Supplier)}
+	 * */
 	public DataObjectKey(ResourceLocation id, Supplier<T> factory) {
 		this.id = id;
 		this.hash = id.hashCode();
