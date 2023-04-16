@@ -44,6 +44,11 @@ public class ChunkSerializerMixin {
 		csa$onRead0(chunkAccess, compoundTag);
 	}
 
+	@Surrogate
+	private void onRead(ServerLevel serverLevel, PoiManager poiManager, ChunkPos chunkPos, CompoundTag compoundTag, CallbackInfoReturnable<ProtoChunk> cbi, ChunkPos chunkPos2, UpgradeData upgradeData, boolean bl, ListTag listTag, int i, LevelChunkSection levelChunkSections[], boolean bl2, ChunkSource chunkSource, LevelLightEngine levelLightEngine, Registry<Biome> registry, long m, ChunkStatus.ChunkType chunkType, BlendingData blendingData, ChunkAccess chunkAccess) {
+		csa$onRead0(chunkAccess, compoundTag);
+	}
+
 	private static void csa$onRead0(ChunkAccess chunkAccess, CompoundTag compoundTag) {
 		if(chunkAccess instanceof LevelChunkAccess lc && compoundTag.contains(ChunkStorageApi.CHUNK_DATA_TAG)) {
 			lc.csa$getStorage().load(compoundTag.getCompound(ChunkStorageApi.CHUNK_DATA_TAG));
