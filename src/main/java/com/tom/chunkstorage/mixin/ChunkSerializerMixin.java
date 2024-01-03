@@ -57,8 +57,7 @@ public class ChunkSerializerMixin {
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/chunk/storage/ChunkSerializer;saveTicks(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/level/chunk/ChunkAccess$TicksToSave;)V"), method = "write", locals = LocalCapture.CAPTURE_FAILHARD)
 	private static void onWrite(ServerLevel serverLevel, ChunkAccess chunkAccess, CallbackInfoReturnable<CompoundTag> cbi, ChunkPos chunkPos, CompoundTag compoundTag) {
-		if(chunkAccess.getStatus().getChunkType() != ChunkStatus.ChunkType.PROTOCHUNK) {
-			LevelChunkAccess lc = (LevelChunkAccess) chunkAccess;
+		if (chunkAccess instanceof LevelChunkAccess lc) {
 			CompoundTag tag = lc.csa$getStorage().save();
 			if(tag != null)
 				compoundTag.put(ChunkStorageApi.CHUNK_DATA_TAG, tag);
